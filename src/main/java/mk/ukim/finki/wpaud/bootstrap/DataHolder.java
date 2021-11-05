@@ -18,8 +18,10 @@ public class DataHolder {
     public void init() {
         categories.add(new Category("Books", "Books category"));
         categories.add(new Category("Movies", "Movies category"));
+        categories.add(new Category("Software", "Software category"));
 
         users.add(new User("kostadin.mishev", "km", "Kostadin", "Mishev"));
         users.add(new User("riste.stojanov", "rs", "Riste", "Stojanov"));
+        users.add(new User("ana.todorovska", "at", "Ana", "Todorovska"));
     }
 }
