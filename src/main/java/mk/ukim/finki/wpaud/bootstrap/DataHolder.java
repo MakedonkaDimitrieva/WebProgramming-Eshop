@@ -1,9 +1,6 @@
 package mk.ukim.finki.wpaud.bootstrap;
 
-import mk.ukim.finki.wpaud.model.Category;
-import mk.ukim.finki.wpaud.model.Manufacturer;
-import mk.ukim.finki.wpaud.model.Product;
-import mk.ukim.finki.wpaud.model.User;
+import mk.ukim.finki.wpaud.model.*;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -17,6 +14,7 @@ public class DataHolder {
     public static List<User> users = new ArrayList<>();
     public static List<Manufacturer> manufacturers = new ArrayList<>();
     public static List<Product> products = new ArrayList<>();
+    public static List<ShoppingCart> shoppingCarts = new ArrayList<>();
 
     @PostConstruct // da se povika pri startuvanje na app
     public void init() {
@@ -28,14 +26,14 @@ public class DataHolder {
         users.add(new User("riste.stojanov", "rs", "Riste", "Stojanov"));
         users.add(new User("ana.todorovska", "at", "Ana", "Todorovska"));
 
-        Manufacturer manufacturer = new Manufacturer("Nike", "NY NY");
-        manufacturers.add(manufacturer);
-
         Category category = new Category("Sport", "Sport category");
         categories.add(category);
 
-        products.add(new Product("Ball 1", 235.8, 7, category, manufacturer));
-        products.add(new Product("Ball 2", 235.8, 7, category, manufacturer));
-        products.add(new Product("Ball 3", 235.8, 7, category, manufacturer));
+        Manufacturer manufacturer = new Manufacturer("Nike", "NY NY");
+        manufacturers.add(manufacturer);
+        manufacturers.add(new Manufacturer("Apple", "LA LA"));
+
+        products.add(new Product("Ball", 350.0, 7, category, manufacturer));
+        products.add(new Product("Harry Potter", 500.0, 7, category, manufacturer));
     }
 }
