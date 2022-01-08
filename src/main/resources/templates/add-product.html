@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Add product</title>
@@ -63,7 +63,7 @@
                            class="form-control"
                            id="name"
                            name="name"
-                           th:value="(${product} !=null ? ${product.getName()} : '')"
+                           th:value="(${product} != null ? ${product.getName()} : '')"
                            required
                            placeholder="Enter product name">
                 </div>
@@ -73,9 +73,8 @@
                            class="form-control"
                            id="price"
                            name="price"
-                           th:value="(${product} !=null ? ${product.getPrice()} : '')"
-                           required
-                           placeholder="Enter price">
+                           th:value="(${product} != null ? ${product.getPrice()} : '')"
+                           placeholder="Price">
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity</label>
@@ -83,24 +82,23 @@
                            class="form-control"
                            id="quantity"
                            name="quantity"
-                           th:value="(${product} !=null ? ${product.getQuantity()} : '')"
-                           required
-                           placeholder="Enter quantity">
+                           th:value="(${product} != null ? ${product.getQuantity()} : '')"
+                           placeholder="Quantity">
                 </div>
                 <div class="form-group">
                     <label>Category</label>
                     <select name="category" class="form-control">
                         <option th:if="${product} != null"
-                                th:selected="${product.getCategory() != null
-                                && product.getCategory().getId() == cat.getId()}"
+                                th:selected="${product.getCategory() != null &&
+                                product.getCategory().getId() == cat.getId()}"
                                 th:each="cat : ${categories}"
-                                th:text="${cat.getName()}"
-                                th:value="${cat.getId()}">
+                                th:value="${cat.getId()}"
+                                th:text="${cat.getName()}">
                         </option>
                         <option th:if="${product} == null"
                                 th:each="cat : ${categories}"
-                                th:text="${cat.getName()}"
-                                th:value="${cat.getId()}">
+                                th:value="${cat.getId()}"
+                                th:text="${cat.getName()}">
                         </option>
                     </select>
                 </div>
@@ -108,16 +106,15 @@
                     <label>Manufacturer</label>
                     <select name="manufacturer" class="form-control">
                         <option th:if="${product} != null"
-                                th:selected="${product.getManufacturer() != null
-                                && product.getManufacturer().getId() == man.getId()}"
+                                th:selected="${product.getManufacturer() != null && product.getManufacturer().getId() == man.getId()}"
                                 th:each="man : ${manufacturers}"
-                                th:text="${man.getName()}"
-                                th:value="${man.getId()}">
+                                th:value="${man.getId()}"
+                                th:text="${man.getName()}">
                         </option>
                         <option th:if="${product} == null"
                                 th:each="man : ${manufacturers}"
-                                th:text="${man.getName()}"
-                                th:value="${man.getId()}">
+                                th:value="${man.getId()}"
+                                th:text="${man.getName()}">
                         </option>
                     </select>
                 </div>
@@ -180,3 +177,6 @@
 </footer>
 </body>
 </html>
+
+
+
